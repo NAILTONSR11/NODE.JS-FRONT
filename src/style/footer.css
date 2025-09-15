@@ -1,0 +1,13 @@
+.container-rodape{
+    /* border: 3px solid red; */
+    height: auto;
+    padding: 20px;
+    background-color: #2B2826;
+}
+
+.container-rodape h3{
+    font-family: "Inter", sans-serif;
+    color: #C5C4C4;
+    text-align: center;
+    font-weight: 400;
+}

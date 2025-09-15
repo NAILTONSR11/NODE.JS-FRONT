@@ -1,0 +1,42 @@
+.header-container{
+    /* border: 3px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    background-color: #FD5446;
+    /* margin-top: 5px; */
+    /* border-top-left-radius:15px ;
+    border-top-right-radius:15px ; */
+}
+
+.logo h1{
+    padding:5px;
+    font-family: "Inter", sans-serif;
+    color: #FEEFED;
+}
+
+/* .nevegacao{
+    border: 3px solid rgb(243, 237, 237);
+    
+    
+} */
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+    width: 500px;
+}
+
+nav ul li{
+    list-style: none;
+    
+}
+
+nav ul li a{
+    color: #FDE0DD;
+    font-family: "Inter", sans-serif;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
