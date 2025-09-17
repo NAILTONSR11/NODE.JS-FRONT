@@ -5,8 +5,10 @@ const ui = {
         const listPets = document.getElementById('pets-list');
         try {
             const pets = await api.obterPets();
-            pets.forEach(item => {
-                listPets.innerHTML = `
+            pets.forEach(ui.adicionarElements)
+            
+            /* (item => {
+                listPets.innerHTML += `
                 <li data-id = "${item.id}">
                     <img src="${item.imagem}" alt="${item.nome}">
                     <h2>${item.nome}</h2>
@@ -15,11 +17,40 @@ const ui = {
                     <button>Quero Adotar</button>
                 </li>
                 `
-            });
+            }); */
+
         } catch (error) {
             alert("Falha na renderização da API!")
             throw error
         }
+    },
+
+    adicionarElements(pets){
+        const listPets = document.getElementById('pets-list');
+
+        const li = document.createElement('li');
+        li.setAttribute('data-id', pets.id);
+
+        const img = document.createElement('img');
+        img.src = pets.imagem;
+        img.alt = `Imagem do dog: ${pets.nome}`
+
+        const h2 = document.createElement('h2');
+        h2.innerText = pets.nome;
+
+        const p = document.createElement('p');
+        p.innerText = pets.raca;
+
+        const span = document.createElement('span');
+        span.innerText = pets.descricao;
+
+        const btn = document.createElement('button');
+        btn.innerText = "Quero Adotar";
+
+        li.append(img, h2, p, span, btn);
+
+        listPets.appendChild(li)
+
     }
 }
 
