@@ -47,7 +47,17 @@ const ui = {
         const btn = document.createElement('button');
         btn.innerText = "Quero Adotar";
 
-        li.append(img, h2, p, span, btn);
+        const btnEdit = document.createElement('div');
+        btnEdit.classList.add('botao-editar');
+
+        const iconEdit = document.createElement('img');
+        iconEdit.src = "./src/assets/image/EDITA.png";
+        iconEdit.alt = "imagem editar"
+        btnEdit.appendChild(iconEdit);
+
+
+
+        li.append(img, h2, p, span, btn, btnEdit);
 
         listPets.appendChild(li)
 
