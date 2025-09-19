@@ -17,12 +17,15 @@ async function manipulaForm(event){
     const imagem = document.getElementById('imagem').value;
     const descricao = document.getElementById('descricao').value;
 
-
     try {
-        await api.adicionarPets({nome, raca, descricao, imagem});
+        if(id){
+            await api.atualizarPets({id, nome, raca, descricao, imagem});
+        }else{
+            await api.adicionarPets({nome, raca, descricao, imagem});
+        }
         ui.renderizarPets();
     } catch (error) {
         alert("Erro ao adicionar novo pet!")
-       throw error
+       throw errorc
     }
 }

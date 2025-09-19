@@ -2,7 +2,7 @@ import api from "./api.js";
 
 const ui = {
     async renderizarPets(){
-        const listPets = document.getElementById('pets-list');
+        //const listPets = document.getElementById('pets-list');
         try {
             const pets = await api.obterPets();
             pets.forEach(ui.adicionarElements)
@@ -47,20 +47,49 @@ const ui = {
         const btn = document.createElement('button');
         btn.innerText = "Quero Adotar";
 
-        const btnEdit = document.createElement('div');
-        btnEdit.classList.add('botao-editar');
+
+        // div com os icones
+        
+        const btnEditDele = document.createElement('div');
+        btnEditDele.classList.add('botao-edit-dele');
 
         const iconEdit = document.createElement('img');
         iconEdit.src = "./src/assets/image/EDITA.png";
         iconEdit.alt = "imagem editar"
-        btnEdit.appendChild(iconEdit);
+        iconEdit.classList.add("edit")
+        iconEdit.onclick = ()=> ui.formEdit(pets.id)
+    
 
+        const iconDelet = document.createElement('img');
+        iconDelet.src = "./src/assets/image/DELET.png";
+        iconDelet.alt = "imagem DELETAR"
+        iconDelet.classList.add("dele")
+        iconDelet.onclick = async() =>{
+            try {
+                await api.deletPets(pets.id);
+                ui.renderizarPets();
+            } catch (error) {
+                alert("Erro ao deletar e renderizar.");
+                throw error;
+            }
+        }
 
-
-        li.append(img, h2, p, span, btn, btnEdit);
-
+        li.append(img, h2, p, span, btn, btnEditDele);
+        btnEditDele.append(iconEdit, iconDelet);
         listPets.appendChild(li)
 
+    },
+
+
+    // chamar formulário para controle de atualização.
+    async formEdit(petsId){
+        const pets = await api.buscarPets(petsId)
+
+        document.getElementById("pet-id").value = pets.id;
+        document.getElementById("nome").value = pets.nome;
+        document.getElementById("raca").value = pets.raca;
+        document.getElementById("imagem").value = pets.imagem;
+        document.getElementById("descricao").value = pets.descricao;
     }
 }
 

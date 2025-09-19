@@ -34,13 +34,6 @@
       "raca": "vira-lata",
       "descricao": "O famoso Cachorro caramelo.",
       "imagem": "https://fotos.amomeupet.org/uploads/fotos/1650657514_626308ea5d61c_hd.jpeg"
-    },
-    {
-      "nome": "dog",
-      "raca": "pit",
-      "descricao": "teste",
-      "imagem": "https://i.imgflip.com/6rvsnz.jpg",
-      "id": 7
     }
   ]
 }
